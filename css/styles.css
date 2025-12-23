@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 :root {
-  --primary: #0f172a;         /* Dark navy */
-  --secondary: #1e40af;       /* Rich blue */
-  --accent: #3b82f6;          /* Sky blue */
+  --primary: #0f172a;
+  --secondary: #1e40af;
+  --accent: #3b82f6;
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
   --light: #f8fafc;
@@ -30,6 +30,7 @@ body {
   padding: 0 1.5rem;
 }
 
+/* ================= HEADER ================= */
 header {
   background: linear-gradient(to right, var(--primary), var(--secondary));
   color: white;
@@ -54,7 +55,6 @@ header {
 
 .logo-img {
   height: 32px;
-  width: auto;
 }
 
 nav ul {
@@ -67,7 +67,7 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 nav a:hover {
@@ -83,12 +83,14 @@ nav a:hover {
   color: white;
 }
 
+/* ================= SECTION ================= */
 section {
   padding: 5rem 2rem;
   max-width: 1200px;
   margin: auto;
 }
 
+/* ================= HOME ================= */
 #home {
   background: linear-gradient(to right, var(--primary), var(--secondary));
   color: white;
@@ -99,7 +101,6 @@ section {
 
 #home h1 {
   font-size: 2.8rem;
-  margin-bottom: 1rem;
 }
 
 #home p {
@@ -107,6 +108,64 @@ section {
   opacity: 0.9;
 }
 
+/* ================= CARD ================= */
+.headquarters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+/* ================= PROJECT IMAGE ================= */
+.card img.project-photo {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+/* ================= TECHNICAL SKILLS ================= */
+#technical-skills .card {
+  text-align: left;
+}
+
+#technical-skills p {
+  margin-top: 1.2rem;
+}
+
+#technical-skills strong {
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+#technical-skills .logo-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+  margin-top: 1.5rem;
+}
+
+#technical-skills .logo-row img {
+  width: 85px;
+}
+
+/* ================= FORM (MESSAGE ME – ASLI, TIDAK DIUBAH) ================= */
 form {
   display: flex;
   flex-direction: column;
@@ -134,7 +193,7 @@ form button {
   border: none;
   cursor: pointer;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 form button:hover {
@@ -142,66 +201,17 @@ form button:hover {
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 
-#result {
-  background-color: var(--accent);
-  color: white;
-  padding: 1rem;
-  border-radius: 10px;
-  margin-top: 1.5rem;
-}
-
+/* ================= FOOTER ================= */
 footer {
   background-color: var(--primary);
   color: white;
   text-align: center;
   padding: 2rem;
   margin-top: 5rem;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+  border-radius: 40px 40px 0 0;
 }
 
-#portofolio .headquarters {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
-  margin-top: 3rem;
-}
-
-.card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 1.8rem;
-  text-align: center;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-}
-
-.card img.project-photo {
-  width: 100%;
-  height: 550px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 1rem;
-}
-
-.card h3 {
-  font-size: 1.3rem;
-  color: var(--secondary);
-  margin-bottom: 0.5rem;
-}
-
-.card p {
-  font-size: 1rem;
-  color: var(--dark);
-}
-
+/* ================= ANIMATION ================= */
 .fade-in-up {
   animation: fadeInUp 1s ease-out;
 }
@@ -211,17 +221,13 @@ footer {
     opacity: 0;
     transform: translateY(40px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -241,66 +247,63 @@ html {
     display: block;
   }
 
-  #portofolio .headquarters {
-    grid-template-columns: 1fr;
-  }
-
   .card img.project-photo {
     height: 160px;
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===================================================== */
+/* ============ TAMBAHAN SAJA: MODAL POPUP ============= */
+/* ===================================================== */
+
 .modal {
   display: none;
   position: fixed;
-  z-index: 2000;
+  z-index: 3000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
   background-color: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(4px);
 }
 
 .modal-content {
   background-color: white;
-  margin: 15% auto;
+  margin: 12% auto;
   padding: 2rem;
   border-radius: 16px;
   width: 90%;
   max-width: 500px;
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
   position: relative;
-  animation: slideUp 0.5s ease-out;
+  animation: slideUp 0.4s ease-out;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+}
+
+.close:hover {
+  color: black;
 }
 
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(80px);
+    transform: translateY(60px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.glow {
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 0 30px rgba(59, 130, 246, 0.3);
-}
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  color: #888;
-  font-size: 1.4rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.close:hover {
-  color: black;
 }
